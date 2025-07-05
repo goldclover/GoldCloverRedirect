@@ -230,23 +230,27 @@
         // Función para redireccionar a WhatsApp
         function redirectToWhatsApp() {
             let whatsappUrl = `https://wa.me/${PHONE_NUMBER}`;
+            let whatsappAppUrl = `whatsapp://send?phone=${PHONE_NUMBER}`;
             
             if (MESSAGE) {
                 whatsappUrl += `?text=${encodeURIComponent(MESSAGE)}`;
+                whatsappAppUrl += `&text=${encodeURIComponent(MESSAGE)}`;
             }
             
-            // Intentar abrir la app nativa primero, luego WhatsApp Web
-            try {
-                // Para móviles - intenta abrir la app nativa
-                window.location.href = `whatsapp://send?phone=${PHONE_NUMBER}&text=${encodeURIComponent(MESSAGE)}`;
+            // Detectar si es móvil
+            const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+            
+            if (isMobile) {
+                // En móviles, usar window.location.href para evitar popup blocker
+                window.location.href = whatsappAppUrl;
                 
-                // Fallback a WhatsApp Web después de un breve delay
+                // Fallback a WhatsApp Web si la app no se abre
                 setTimeout(() => {
-                    window.open(whatsappUrl, '_blank');
-                }, 1000);
-            } catch (error) {
-                // Si falla, abre WhatsApp Web directamente
-                window.open(whatsappUrl, '_blank');
+                    window.location.href = whatsappUrl;
+                }, 2000);
+            } else {
+                // En escritorio, redirigir directamente a WhatsApp Web
+                window.location.href = whatsappUrl;
             }
         }
 
