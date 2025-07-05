@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gold Clover - Conectando...</title>
+    <title>Redirigiendo a WhatsApp...</title>
     <style>
         * {
             margin: 0;
@@ -12,316 +12,270 @@
         }
 
         body {
-            font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, #4a148c 0%, #7b1fa2 25%, #9c27b0 50%, #673ab7 75%, #3f51b5 100%);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #8B5CF6, #5B21B6);
             min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            overflow: hidden;
-            position: relative;
-        }
-
-        /* Fondo animado de casino */
-        .casino-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: 
-                radial-gradient(circle at 20% 20%, rgba(255, 215, 0, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(255, 215, 0, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 40% 60%, rgba(255, 215, 0, 0.05) 0%, transparent 50%);
-            animation: shimmer 3s ease-in-out infinite alternate;
-        }
-
-        @keyframes shimmer {
-            0% { opacity: 0.3; }
-            100% { opacity: 0.7; }
-        }
-
-        /* Partículas doradas flotantes */
-        .particles {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-        }
-
-        .particle {
-            position: absolute;
-            width: 4px;
-            height: 4px;
-            background: gold;
-            border-radius: 50%;
-            animation: float 6s infinite ease-in-out;
-            opacity: 0.6;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
-            10%, 90% { opacity: 1; }
-            50% { transform: translateY(-10vh) rotate(180deg); }
+            padding: 20px;
         }
 
         .container {
-            text-align: center;
-            padding: 3rem;
-            background: rgba(74, 20, 140, 0.9);
+            background: white;
             border-radius: 20px;
-            backdrop-filter: blur(15px);
-            box-shadow: 
-                0 20px 40px rgba(0, 0, 0, 0.3),
-                inset 0 1px 0 rgba(255, 255, 255, 0.2),
-                0 0 30px rgba(156, 39, 176, 0.5);
-            border: 2px solid rgba(255, 215, 0, 0.3);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            padding: 60px 40px;
+            text-align: center;
             max-width: 500px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .container::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
             width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.1), transparent);
-            animation: shine 2s infinite;
+            animation: fadeInScale 0.8s ease-out;
         }
 
-        @keyframes shine {
-            0% { left: -100%; }
-            100% { left: 100%; }
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.9) translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
         }
 
-        .logo {
-            font-size: 3rem;
-            font-weight: bold;
-            color: #ffd700;
-            text-shadow: 
-                2px 2px 4px rgba(0, 0, 0, 0.5),
-                0 0 20px rgba(255, 215, 0, 0.8);
-            margin-bottom: 1rem;
-            position: relative;
-            z-index: 2;
+        .whatsapp-icon {
+            width: 100px;
+            height: 100px;
+            background: #8B5CF6;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+            animation: bounce 2s infinite;
+            box-shadow: 0 10px 30px rgba(139, 92, 246, 0.3);
         }
 
-        .clover {
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-15px);
+            }
+            60% {
+                transform: translateY(-7px);
+            }
+        }
+
+        .whatsapp-icon svg {
+            width: 55px;
+            height: 55px;
+            fill: white;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 2.5em;
+            font-weight: 700;
+        }
+
+        .status-text {
+            color: #666;
+            font-size: 1.2em;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .loading-dots {
             display: inline-block;
-            color: #4caf50;
-            font-size: 3.5rem;
-            margin: 0 10px;
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-        }
-
-        .subtitle {
-            color: #e1bee7;
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
             position: relative;
-            z-index: 2;
+            width: 80px;
+            height: 20px;
+            margin: 20px 0;
+        }
+
+        .loading-dots div {
+            position: absolute;
+            top: 50%;
+            width: 13px;
+            height: 13px;
+            border-radius: 50%;
+            background: #8B5CF6;
+            animation: loading 1.2s linear infinite;
+        }
+
+        .loading-dots div:nth-child(1) { left: 8px; animation-delay: 0s; }
+        .loading-dots div:nth-child(2) { left: 32px; animation-delay: -0.4s; }
+        .loading-dots div:nth-child(3) { left: 56px; animation-delay: -0.8s; }
+
+        @keyframes loading {
+            0% {
+                transform: translateY(-50%) scale(0);
+            }
+            50% {
+                transform: translateY(-50%) scale(1);
+            }
+            100% {
+                transform: translateY(-50%) scale(0);
+            }
         }
 
         .countdown {
-            font-size: 4rem;
+            font-size: 3em;
             font-weight: bold;
-            color: #ffd700;
+            color: #8B5CF6;
             margin: 20px 0;
-            text-shadow: 
-                2px 2px 4px rgba(0, 0, 0, 0.5),
-                0 0 30px rgba(255, 215, 0, 0.8);
-            animation: glow 2s ease-in-out infinite alternate;
-            position: relative;
-            z-index: 2;
+            text-shadow: 0 2px 10px rgba(139, 92, 246, 0.3);
         }
 
-        @keyframes glow {
-            from { text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5), 0 0 30px rgba(255, 215, 0, 0.8); }
-            to { text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5), 0 0 40px rgba(255, 215, 0, 1); }
+        .manual-redirect {
+            margin-top: 40px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 15px;
+            border-left: 4px solid #8B5CF6;
         }
 
-        .progress-bar {
-            width: 100%;
-            height: 8px;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 4px;
-            overflow: hidden;
-            margin: 20px 0;
-            position: relative;
-            z-index: 2;
+        .manual-redirect p {
+            color: #666;
+            margin-bottom: 20px;
         }
 
-        .progress {
-            height: 100%;
-            background: linear-gradient(90deg, #ffd700, #ffeb3b, #ffd700);
-            width: 0%;
-            transition: width 0.1s ease;
-            border-radius: 4px;
-            box-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
-        }
-
-        .message {
-            color: #e1bee7;
-            font-size: 1.1rem;
-            margin: 20px 0;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
-            position: relative;
-            z-index: 2;
-        }
-
-        .cta-button {
-            background: linear-gradient(45deg, #ffd700, #ffeb3b);
-            color: #4a148c;
-            font-size: 1.1rem;
-            font-weight: bold;
-            padding: 12px 30px;
+        .btn-whatsapp {
+            background: linear-gradient(135deg, #8B5CF6, #5B21B6);
+            color: white;
+            padding: 15px 40px;
             border: none;
-            border-radius: 25px;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4);
-            position: relative;
-            z-index: 2;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 8px 20px rgba(139, 92, 246, 0.3);
         }
 
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.6);
-            background: linear-gradient(45deg, #ffeb3b, #ffd700);
+        .btn-whatsapp:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(139, 92, 246, 0.4);
         }
 
-        .casino-icons {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            font-size: 1.5rem;
-            opacity: 0.3;
+        .contact-info {
+            margin-top: 30px;
+            padding: 15px;
+            background: linear-gradient(135deg, #f3f0ff, #faf8ff);
+            border-radius: 12px;
+            border: 1px solid #8B5CF6;
         }
 
-        .casino-icons span {
-            display: inline-block;
-            margin: 0 5px;
-            animation: rotate 4s linear infinite;
+        .contact-info h3 {
+            color: #8B5CF6;
+            margin-bottom: 10px;
+            font-size: 1.2em;
         }
 
-        @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-
-        /* Responsive */
-        @media (max-width: 600px) {
-            .container {
-                margin: 20px;
-                padding: 2rem;
-            }
-            .logo {
-                font-size: 2rem;
-            }
-            .clover {
-                font-size: 2.5rem;
-            }
-            .countdown {
-                font-size: 3rem;
-            }
+        .contact-info p {
+            color: #555;
+            font-size: 1.1em;
+            font-weight: 500;
         }
     </style>
 </head>
 <body>
-    <div class="casino-bg"></div>
-    
-    <div class="particles">
-        <div class="particle" style="left: 10%; animation-delay: 0s;"></div>
-        <div class="particle" style="left: 20%; animation-delay: 1s;"></div>
-        <div class="particle" style="left: 30%; animation-delay: 2s;"></div>
-        <div class="particle" style="left: 40%; animation-delay: 3s;"></div>
-        <div class="particle" style="left: 50%; animation-delay: 4s;"></div>
-        <div class="particle" style="left: 60%; animation-delay: 0.5s;"></div>
-        <div class="particle" style="left: 70%; animation-delay: 1.5s;"></div>
-        <div class="particle" style="left: 80%; animation-delay: 2.5s;"></div>
-        <div class="particle" style="left: 90%; animation-delay: 3.5s;"></div>
-    </div>
-
     <div class="container">
-        <div class="casino-icons">
-            <span>🎰</span>
-            <span>🎲</span>
-            <span>🃏</span>
-            <span>💎</span>
+        <div class="whatsapp-icon">
+            <svg viewBox="0 0 24 24">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.893 3.488"/>
+            </svg>
         </div>
-        
-        <h1 class="logo">
-            GOLD<span class="clover">🍀</span>CLOVER
-        </h1>
-        
-        <p class="subtitle">CREACION DE USUARIO...</p>
+
+        <h1>¡Crear Usuario!</h1>
+        <p class="status-text">Serás redirigido a WhatsApp para crear tu usuario en...</p>
         
         <div class="countdown" id="countdown">3</div>
         
-        <div class="progress-bar">
-            <div class="progress" id="progress"></div>
+        <div class="loading-dots">
+            <div></div>
+            <div></div>
+            <div></div>
         </div>
-        
-        <p class="message">Conectando con tu creacion de usuario...</p>
-        
-        <button class="cta-button" onclick="redirectNow()">
-            🎯 Acceder Ahora
-        </button>
+
+        <div class="contact-info">
+            <h3>🚀 Registro de Usuario</h3>
+            <p>Completa tu registro vía WhatsApp</p>
+        </div>
+
+        <div class="manual-redirect">
+            <p>¿No se abrió WhatsApp automáticamente?</p>
+            <a href="https://wa.me/5511999999999?text=Hola!%20Me%20gustaría%20más%20información." class="btn-whatsapp" target="_blank">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.893 3.488"/>
+                </svg>
+                Abrir WhatsApp
+            </a>
+        </div>
     </div>
 
     <script>
-        // URL de destino
-        const targetUrl = "https://wa.me/+5491125463125?text=Hola%20quiero%20un%20usuario";
-        
-        // Función para redirección inmediata
-        function redirectNow() {
-            window.location.href = targetUrl;
-        }
-        
-        // Contador regresivo
-        let countdown = 3;
-        const countdownElement = document.getElementById('countdown');
-        const progressElement = document.getElementById('progress');
-        
-        const timer = setInterval(() => {
-            countdown--;
-            countdownElement.textContent = countdown;
-            progressElement.style.width = ((3 - countdown) / 3) * 100 + '%';
+        // Configuración - Cambia estos valores
+        const PHONE_NUMBER = '5491125463125'; // Número con código de país (sin +)
+        const MESSAGE = 'Hola! Quiero crear mi usuario'; // Mensaje para registro
+        const COUNTDOWN_SECONDS = 1; // Segundos antes de redireccionar (más rápido)
+
+        // Función para redireccionar a WhatsApp
+        function redirectToWhatsApp() {
+            let whatsappUrl = `https://wa.me/${PHONE_NUMBER}`;
             
-            if (countdown <= 0) {
-                clearInterval(timer);
-                countdownElement.textContent = '🎰';
-                setTimeout(() => {
-                    window.location.href = targetUrl;
-                }, 500);
+            if (MESSAGE) {
+                whatsappUrl += `?text=${encodeURIComponent(MESSAGE)}`;
             }
-        }, 1000);
-        
-        // Crear más partículas dinámicamente
-        function createParticles() {
-            const particles = document.querySelector('.particles');
-            for (let i = 0; i < 20; i++) {
-                const particle = document.createElement('div');
-                particle.className = 'particle';
-                particle.style.left = Math.random() * 100 + '%';
-                particle.style.animationDelay = Math.random() * 6 + 's';
-                particle.style.animationDuration = (Math.random() * 3 + 4) + 's';
-                particles.appendChild(particle);
+            
+            // Intentar abrir la app nativa primero, luego WhatsApp Web
+            try {
+                // Para móviles - intenta abrir la app nativa
+                window.location.href = `whatsapp://send?phone=${PHONE_NUMBER}&text=${encodeURIComponent(MESSAGE)}`;
+                
+                // Fallback a WhatsApp Web después de un breve delay
+                setTimeout(() => {
+                    window.open(whatsappUrl, '_blank');
+                }, 1000);
+            } catch (error) {
+                // Si falla, abre WhatsApp Web directamente
+                window.open(whatsappUrl, '_blank');
             }
         }
-        
-        createParticles();
+
+        // Contador regresivo
+        let countdown = COUNTDOWN_SECONDS;
+        const countdownElement = document.getElementById('countdown');
+
+        function updateCountdown() {
+            countdownElement.textContent = countdown;
+            
+            if (countdown === 0) {
+                countdownElement.textContent = '¡Abriendo!';
+                redirectToWhatsApp();
+                return;
+            }
+            
+            countdown--;
+            setTimeout(updateCountdown, 1000);
+        }
+
+        // Iniciar contador cuando se carga la página
+        window.addEventListener('load', function() {
+            updateCountdown();
+        });
+
+        // También permitir redirección inmediata si hacen clic
+        document.addEventListener('click', function() {
+            redirectToWhatsApp();
+        });
     </script>
 </body>
 </html>
